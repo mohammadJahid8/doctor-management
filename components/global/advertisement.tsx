@@ -49,7 +49,7 @@ export function Advertisement({ position, className }: AdvertisementProps) {
   const [selectedAd, setSelectedAd] = useState<
     (typeof advertisements)[0] | null
   >(null);
-  console.log("🚀 ~ Advertisement ~ selectedAd:", selectedAd, advertisements);
+  // console.log("🚀 ~ Advertisement ~ selectedAd:", selectedAd, advertisements);
   const [dismissed, setDismissed] = useState(false);
 
   useEffect(() => {
