@@ -7,6 +7,8 @@ import Onboard from "@/components/global/onboard";
 import Testimonials from "@/components/global/testimonials";
 import { Suspense } from "react";
 
+//test changes
+
 const Home = () => {
   return (
     <div>
