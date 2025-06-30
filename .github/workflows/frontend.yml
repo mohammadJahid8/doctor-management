@@ -3,8 +3,6 @@ name: Frontend CI/CD
 on:
   push:
     branches: [ main ]
-    paths:
-      - 'frontend/**'
 
 jobs:
   build-and-deploy:
@@ -14,17 +12,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
+      - name: Use Pre-installed Node.js
+        run: |
+          node --version  # Logs the default version (for debugging)
+          npm --version
 
-      - name: Install frontend dependencies
-        working-directory: ./frontend
+      - name: Install dependencies
         run: npm install
 
       - name: Build Next.js
-        working-directory: ./frontend
         run: npm run build
 
       - name: Deploy to EC2
@@ -34,7 +30,7 @@ jobs:
           username: ubuntu
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd ~/frontend
+            cd ~/your-ec2-deployment-dir
             git pull origin main
             npm install --production
             pm2 restart frontend
