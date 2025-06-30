@@ -30,7 +30,7 @@ jobs:
           username: ubuntu
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd ~/your-ec2-deployment-dir
+            cd ~/frontend
             git pull origin main
             rm -rf .next
             npm install --production
