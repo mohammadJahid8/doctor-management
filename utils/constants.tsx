@@ -209,6 +209,19 @@ export const standardPackages = [
     ],
     icon: <BookUser className="text-white w-[45px] h-[45px] -mb-5" />,
   },
+  {
+    price: "Free",
+    billing: "Free",
+    type: "Annual Package",
+    planId: "",
+    features: [
+      "All features Access",
+      "Dedicated account manager",
+      "Advanced patient data analytics and insights",
+      "Complimentary listing on our doctor directory",
+    ],
+    icon: <BookUser className="text-white w-[45px] h-[45px] -mb-5" />,
+  },
 ];
 
 export const testimonialData = [
