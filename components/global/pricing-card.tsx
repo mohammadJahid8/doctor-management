@@ -69,6 +69,10 @@ const PricingCard = ({ data }: { data: Package }) => {
             <p className="text-green-600 px-8 py-4 rounded shadow-lg font-bold bg-white">
               SUBSCRIBED!
             </p>
+          ) : data.price === "Free" ? (
+            <p className="text-blue-600 px-8 py-4 rounded shadow-lg font-bold bg-white">
+              FREE PLAN
+            </p>
           ) : (
             <PaymentButton planId={data.planId} planName={data.type} />
           )}
