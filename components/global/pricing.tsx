@@ -6,6 +6,7 @@ import { standardPackages } from "@/utils/constants";
 import PricingCard from "./pricing-card";
 
 const Pricing = () => {
+  console.log("STANDARD PACKAGES", standardPackages);
   return (
     <div
       id="pricing"
