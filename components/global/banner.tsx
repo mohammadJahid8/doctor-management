@@ -19,7 +19,7 @@ const Banner = () => {
               "text-[30px] md:text-[42px] text-white font-medium leading-[1.3em] mb-3"
             )}
           >
-            Welcome, esteemed doctors!
+            Welcome, esteemed doctors!!
           </h1>
           <p
             className={cn(
