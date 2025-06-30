@@ -30,6 +30,6 @@ jobs:
             cd ~/frontend
             git pull origin main
             rm -rf .next
-            npm install --production
+            npm install
             npm run build
             pm2 restart frontend
