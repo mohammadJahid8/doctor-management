@@ -32,5 +32,7 @@ jobs:
           script: |
             cd ~/your-ec2-deployment-dir
             git pull origin main
+            rm -rf .next
             npm install --production
+            npm run build
             pm2 restart frontend
