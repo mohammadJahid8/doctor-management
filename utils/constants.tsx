@@ -213,7 +213,7 @@ export const standardPackages = [
     price: "Free",
     billing: "Free",
     type: "Annual Package",
-    planId: "",
+    planId: "plan_QbAnm9Huq6xaPY",
     features: [
       "All features Access",
       "Dedicated account manager",
