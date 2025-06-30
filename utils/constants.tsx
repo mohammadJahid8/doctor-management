@@ -196,7 +196,7 @@ export const standardPackages = [
     icon: <NotebookPen className="text-white w-[45px] h-[45px] -mb-5" />,
   },
   {
-    price: "27,734000",
+    price: "27,734",
     billing: "Annual",
     discount: "20%",
     type: "Annual Package",
