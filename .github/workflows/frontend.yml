@@ -20,9 +20,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build Next.js
-        run: npm run build
-
       - name: Deploy to EC2
         uses: appleboy/ssh-action@master
         with:
