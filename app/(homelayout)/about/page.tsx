@@ -14,85 +14,46 @@ const AboutPage = () => {
             title="Welcome to DOCalert"
             className="text-[32px] lg:text-[46px] leading-[1.3em]"
           />
-          <div className="flex flex-col gap-2">
-            <p className="text-muted-foreground text-[17px]">
-              DOCalert is a revolutionary healthcare technology platform
-              designed to help doctors manage their patients more efficiently.
-              Our platform allows doctors to record patient data, including
-              names, phone numbers, and next appointment dates, and provides
-              valuable insights into patient behavior and treatment outcomes.
+          <div className="flex flex-col gap-4 text-muted-foreground text-[17px]">
+            <p>
+              Welcome to <strong>DOCalert</strong>, India’s trusted patient
+              management and growth platform for doctors, clinics, and
+              hospitals.
+            </p>
+
+            <p>
+              At DOCalert, our mission is simple — to help healthcare
+              professionals grow their practice, improve patient satisfaction,
+              and make clinic management easy for everyone.
+            </p>
+
+            <p>
+              We provide a user-friendly system designed so that even
+              individuals with minimal education or technical skills can operate
+              it effortlessly. Whether you run a large hospital or a small
+              clinic, DOCalert is built to support your growth.
             </p>
 
             <div className="flex flex-col gap-2">
-              <strong>Our Mission: </strong>
-              <p className="text-muted-foreground text-[17px]">
-                At DOCalert, our mission is to improve patient care and outcomes
-                by providing doctors with the tools they need to succeed. We
-                believe that by harnessing the power of technology, we can make
-                healthcare more accessible, efficient, and effective.
-              </p>
-            </div>
-            <div className="flex flex-col gap-2">
-              <strong>Our Team: </strong>
-              <p className="text-muted-foreground text-[17px]">
-                Our team is comprised of experienced healthcare professionals,
-                technology experts, and customer support specialists. We have
-                over 1000+ call support team members, including more than 1000+
-                female call support team members, and a growth analysis and
-                support team of over 60 people. Our team is dedicated to
-                providing exceptional service and support to our doctors and
-                patients.
-              </p>
-            </div>
-            <div className="flex flex-col gap-2">
-              <strong>Our Services: </strong>
-              <p className="text-muted-foreground text-[17px]">
-                DOCalert offers a range of services designed to help doctors
-                manage their patients more effectively. These include:
-              </p>
-              <p className="text-muted-foreground text-[17px]">
-                - Patient data management: Our platform allows doctors to record
-                patient data, including names, phone numbers, and next
-                appointment dates.
-              </p>
-              <p className="text-muted-foreground text-[17px]">
-                - Appointment reminders: Our executive call support team calls
-                patients to remind them of upcoming appointments.
-              </p>
-              <p className="text-muted-foreground text-[17px]">
-                - Growth analysis and support: Our growth analysis and support
-                team helps doctors improve their growth and performance.
-              </p>
-              <p className="text-muted-foreground text-[17px]">
-                - Patient review and feedback: We collect patient reviews and
-                feedback and inform doctors about their work.
-              </p>
-              <p className="text-muted-foreground text-[17px]">
-                - Rewards and recognition: Doctors receive gifts or medals if
-                every patient is happy with their treatment.
-              </p>
-            </div>
-            <div className="flex flex-col gap-2">
-              <strong>Our Impact: </strong>
-              <p className="text-muted-foreground text-[17px]">
-                We are proud to say that we have already made a significant
-                impact in the healthcare industry. We have over 6000+ live
-                doctors and more than 3 crore patients on our platform, and our
-                services have improved patient outcomes and doctor-patient
-                relationships.
-              </p>
-            </div>
-            <div className="flex flex-col gap-2">
-              <strong>Join Us: </strong>
-              <p className="text-muted-foreground text-[17px]">
-                If you are a doctor looking to improve your patient management
-                and care, join us today. Our subscription-based service is
-                designed to be affordable and accessible, and our team is always
-                available to support you.
-              </p>
+              <strong>Our Key Features:</strong>
+
+              <p>✅ <strong>Patient Records Made Easy:</strong> Quickly record essential patient details like name, phone number, and next appointment.</p>
+
+              <p>✅ <strong>Instant OPD Slips:</strong> Generate OPD slips instantly for a smooth and organized check-in process.</p>
+
+              <p>✅ <strong>WhatsApp Review System:</strong> Automatically send review links to patients via WhatsApp after each consultation.</p>
+
+              <p>✅ <strong>Executive Call Support:</strong> Our team reminds patients of their appointments a day in advance via phone calls.</p>
+
+              <p>✅ <strong>Growth Analysis & Doctor Feedback:</strong> Our expert team analyzes your practice growth and informs you of any issues to ensure continuous improvement.</p>
+
+              <p>✅ <strong>Recognition for Excellence:</strong> Doctors who receive all positive feedback are rewarded with special gifts or medals.</p>
+
+              <p>✅ <strong>Billing with or without GST:</strong> Generate bills easily with support for both GST and non-GST billing options.</p>
             </div>
           </div>
         </div>
+
         <Suspense
           fallback={<div className="h-[250px] animate-pulse bg-muted"></div>}
         >
