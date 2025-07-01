@@ -167,6 +167,20 @@ export const users = [
 
 export const standardPackages = [
   {
+    price: "0",
+    billing: "Month",
+    type: "Free Package",
+    planId: "free-plan",
+    features: [
+      "Record patient details (name, phone number, next appointment)",
+      "Generate OP slips for patients",
+      "Hospital/Clinic billing (with or without GST)",
+      "Advanced patient data analytics & insights",
+    ],
+    Note: "Note: Limited features; Call reminders, reviews, and growth support not included.",
+    icon: <FileClock className="text-white w-[45px] h-[45px] -mb-5" />
+  },
+  {
     price: "2,889",
     billing: "Monthly",
     type: "Basic Package",
@@ -174,10 +188,14 @@ export const standardPackages = [
 
     features: [
       "Record patient data, including name, phone number, and next appointment date",
+      "Generate OP slips for patients",
+      "Hospital/Clinic billing with GST or without GST",
       "Appointment reminders via our executive call support team",
       "Growth analysis and support from our team of experts",
-      "Patient review and feedback collection",
+      "Patient review and feedback collection via WhatsApp",
       "Doctor performance tracking and rewards",
+      "Advanced patient data analytics & insights",
+      "Complimentary listing on our doctor directory",
     ],
     icon: <FileClock className="text-white w-[45px] h-[45px] -mb-5" />,
   },
@@ -188,7 +206,7 @@ export const standardPackages = [
     type: "Semi-Annual Package",
     planId: "plan_QbAol8j2VLsrfQ",
     features: [
-      "All features from the 1-month plan",
+      "All features from Baisc Plan +",
       "Patient data analytics and insights",
       "Customized patient engagement campaigns",
       "Priority customer support",
@@ -202,23 +220,10 @@ export const standardPackages = [
     type: "Annual Package",
     planId: "plan_QbAnm9Huq6xaPY",
     features: [
-      "All features from the 6-month plan",
+      "All features from Semi-Annual Plan +",
       "Dedicated account manager",
-      "Advanced patient data analytics and insights",
       "Complimentary listing on our doctor directory",
-    ],
-    icon: <BookUser className="text-white w-[45px] h-[45px] -mb-5" />,
-  },
-  {
-    price: "Free",
-    billing: "Free",
-    type: "Free Package",
-    planId: "free-plan",
-    features: [
-      "All features Access",
-      "Dedicated account manager",
-      "Advanced patient data analytics and insights",
-      "Complimentary listing on our doctor directory",
+      "Maximum savings",
     ],
     icon: <BookUser className="text-white w-[45px] h-[45px] -mb-5" />,
   },
