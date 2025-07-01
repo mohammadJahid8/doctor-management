@@ -66,8 +66,8 @@ const PricingCard = ({ data }: { data: Package }) => {
           ))}
         </ul>
         {data.note && (
-          <div className="mb-6 text-sm text-gray-500 group-hover:text-white text-center">
-            {data.note}
+          <div className="mb-6 text-sm text-gray-500 group-hover:text-white text-left w-full px-2">
+            <b>Note:</b> {data.note}
           </div>
         )}
         <div className="">
