@@ -7,7 +7,6 @@ import * as crypto from "crypto";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 
-const router = useRouter();
 const PaymentButton = ({
   planId,
   planName,
@@ -15,6 +14,7 @@ const PaymentButton = ({
   planId: string;
   planName: string;
 }) => {
+  const router = useRouter();
   const { user, setUserRefetch } = useAppContext();
 
   useEffect(() => {
