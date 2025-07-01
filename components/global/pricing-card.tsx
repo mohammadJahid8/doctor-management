@@ -12,6 +12,7 @@ type Package = {
   billing: string;
   discount?: string;
   planId: string;
+  note: string,
 };
 
 const PricingCard = ({ data }: { data: Package }) => {
