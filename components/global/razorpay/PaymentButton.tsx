@@ -37,7 +37,7 @@ const PaymentButton = ({
           planName,
           planId,
           subscriptionId: "FREE_PLAN", // Optional placeholder
-          status: "Active",
+          status: "Not Subscribed",
         };
 
         const res = await api.post(`/users/save-subscription/${user.email}`, data);
