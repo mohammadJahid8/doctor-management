@@ -43,18 +43,23 @@ export function DataTable<TData, TValue>({
 
   // Filter data based on subscription status
   const filteredData = useMemo(() => {
-    if (subscriptionFilter === "all") return data;
+  if (subscriptionFilter === "all") return data;
 
-    return [...data].filter((item: any) => {
-      const hasSubscription = !!item?.subscription?.planId;
+  return data.filter((item: any) => {
+    const status = item?.subscription?.status;
 
-      if (subscriptionFilter === "subscribed") {
-        return hasSubscription;
-      } else {
-        return !hasSubscription;
-      }
-    });
-  }, [data, subscriptionFilter]);
+    if (subscriptionFilter === "subscribed") {
+      return status === "Active";
+    }
+
+    if (subscriptionFilter === "unsubscribed") {
+      return status === "Not Subscribed" || !status;
+    }
+
+    return true;
+  });
+}, [data, subscriptionFilter]);
+
 
   const table = useReactTable({
     data: filteredData,
