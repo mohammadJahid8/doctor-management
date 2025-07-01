@@ -177,7 +177,7 @@ export const standardPackages = [
       "Hospital/Clinic billing (with or without GST)",
       "Advanced patient data analytics & insights",
     ],
-    note: "Note: Limited features; Call reminders, reviews, and growth support not included.",
+    note: "Limited features; Call reminders, reviews, and growth support not included.",
     icon: <FileClock className="text-white w-[45px] h-[45px] -mb-5" />
   },
   {
