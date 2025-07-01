@@ -5,7 +5,9 @@ import api from "@/utils/axiosInstance";
 import { useAppContext } from "@/lib/context";
 import * as crypto from "crypto";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
+const router = useRouter();
 const PaymentButton = ({
   planId,
   planName,
@@ -47,6 +49,7 @@ const PaymentButton = ({
           toast.success("Subscribed to Free Plan", {
             position: "top-center",
           });
+          router.push("/doctors-dashboard");
         } else {
           toast.error("Failed to activate free plan");
         }
@@ -95,6 +98,7 @@ const PaymentButton = ({
                 toast.success(`Subscribed`, {
                   position: "top-center",
                 });
+                router.push("/doctors-dashboard");
               }
             }
           },
