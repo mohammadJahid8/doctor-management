@@ -64,6 +64,11 @@ const PricingCard = ({ data }: { data: Package }) => {
             </li>
           ))}
         </ul>
+        {data.note && (
+          <div className="mb-6 text-sm text-gray-500 group-hover:text-white text-center">
+            {data.note}
+          </div>
+        )}
         <div className="">
           {user && subscription && subscription?.planId === data?.planId ? (
             <p className="text-green-600 px-8 py-4 rounded shadow-lg font-bold bg-white">
