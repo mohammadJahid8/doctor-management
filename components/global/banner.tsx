@@ -19,7 +19,7 @@ const Banner = () => {
               "text-[30px] md:text-[42px] text-white font-medium leading-[1.3em] mb-3"
             )}
           >
-            DOCalert — India’s #1 Growth Platform for Elite Doctors & Clinics!!
+            Welcome, esteemed doctors!!
           </h1>
           <p
             className={cn(
@@ -27,9 +27,9 @@ const Banner = () => {
               "text-[20px] text-white leading-[1.3em] mb-3"
             )}
           >
-            Grow faster. Stress less. Serve better.<br />
-            Designed for modern healthcare heroes who want to simplify clinic management, 
-            delight patients, and accelerate long-term growth.
+            I'm excited to introduce DOCalert, a revolutionary platform designed
+            to streamline your patient management and accelerate your practice's
+            growth.
           </p>
 
           <MoreBtn to="about" label="READ MORE" />
