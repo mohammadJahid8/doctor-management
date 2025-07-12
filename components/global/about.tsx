@@ -15,25 +15,22 @@ const About = () => {
           <SectionTitle title="About Us" />
 
           <Title
-            title="We Are DOCalert"
+            title="WELCOME TO DOCalert"
             className="text-[32px] lg:text-[46px] leading-[50px]"
           />
 
           <div className="py-3">
             <p className="text-muted-foreground text-xl">
-              Welcome to DOCalert, the revolutionary patient management platform
-              empowering doctors to deliver exceptional care. With a robust
-              suite of tools, we streamline patient data management, foster
-              growth, and celebrate excellence.
+              The Future of Smart Practice Management — Now in Your Hands
+
+              Whether you run a bustling multi-specialty hospital or a cozy single-doctor clinic, 
+              DOCalert transforms your daily chaos into structured, stress-free growth.
+
+              ✅ 100% Made for Indian Healthcare
+              ✅ Minimal Training Required
+              ✅ Backed by Data. Loved by Patients.
             </p>
           </div>
-
-          <Link
-            href="/about"
-            className="bg-secondary hover:bg-black transition-all duration-300 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
-          >
-            MORE ABOUT US
-          </Link>
         </div>
 
         <div
