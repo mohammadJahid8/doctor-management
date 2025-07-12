@@ -27,7 +27,7 @@ const Banner = () => {
               "text-[20px] text-white leading-[1.3em] mb-3"
             )}
           >
-            Grow faster. Stress less. Serve better.<br>
+            Grow faster. Stress less. Serve better.<br />
             Designed for modern healthcare heroes who want to simplify clinic management, 
             delight patients, and accelerate long-term growth.
           </p>
