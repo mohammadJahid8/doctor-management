@@ -335,7 +335,6 @@ export function AddBillingModal() {
               id="gstTax"
               type="number"
               className=""
-              required
               placeholder="GST Tax"
               onChange={(e) => setInputs({ ...inputs, gstTax: e.target.value })}
             />
