@@ -39,7 +39,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         <Header />
         {children}
       </main>
-      {user?.role !== 'admin' && <Whatsapp />}
+      {user?.role !== 'admin'}
     </div>
   );
 };

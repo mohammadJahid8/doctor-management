@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 
-import { Printer, Trash } from "lucide-react";
+import { Printer, Trash,CheckCircle } from "lucide-react";
 import { jsPDF } from "jspdf";
 import { useAppContext } from "@/lib/context";
 import api from "@/utils/axiosInstance";
@@ -11,6 +11,24 @@ import { EditAppointmentModal } from "./edit-appointment-modal";
 import "jspdf-autotable";
 export const AppointmentCellAction: React.FC<any> = ({ data }) => {
   const { setAppointmentRefetch, appointmentRefetch } = useAppContext();
+
+  const handleMarkComplete = async () => {
+    try {
+      const response = await api.patch(`/appointment/complete/${data._id}`);
+      if (response.status === 200) {
+        toast.success("Appointment marked as complete", {
+          position: "top-center",
+        });
+        setAppointmentRefetch(!appointmentRefetch);
+      }
+    } catch (err: any) {
+      toast.error(
+        err?.response?.data?.error || "Failed to complete appointment",
+        { position: "top-center" }
+      );
+      console.error(err);
+    }
+  };
 
   const handleDelete = async (id: any) => {
     try {
@@ -77,6 +95,16 @@ export const AppointmentCellAction: React.FC<any> = ({ data }) => {
 
   return (
     <div className="flex items-center gap-3">
+      <Button
+        size="sm"
+        className="h-7 text-xs bg-blue-600"
+        disabled={data.status === "completed"}
+        onClick={handleMarkComplete}
+      >
+        <CheckCircle className="mr-2 h-4 w-4" />
+        {data.status === "completed" ? "Completed" : "Complete"}
+      </Button>
+
       <Button
         size="sm"
         className="h-7 text-xs bg-green-600"

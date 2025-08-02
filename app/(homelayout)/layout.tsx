@@ -11,7 +11,7 @@ const HomeLayout = ({ children }: any) => {
       <Navbar />
       {children}
       <Footer />
-      {user?.role !== 'admin' && <Whatsapp />}
+      {user?.role !== 'admin'}
     </div>
   );
 };
