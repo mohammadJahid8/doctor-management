@@ -4,7 +4,7 @@ import { Poppins } from 'next/font/google';
 import Provider from '@/lib/provider';
 import { Toaster } from 'sonner';
 import Whatsapp from '@/components/global/whatsapp';
-import ChatBubble from '@/components/global/ChatBubble';
+import ChatWidget from '@/components/global/ChatWidget';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -36,7 +36,7 @@ export default async function RootLayout({
       <body className={`${poppins.className}`}>
         <Provider>
           {children} <Toaster />
-          <ChatBubble />
+          <ChatWidget />
         </Provider>
       </body>
     </html>
