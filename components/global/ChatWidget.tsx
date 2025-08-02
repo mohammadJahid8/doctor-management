@@ -15,7 +15,7 @@ const ChatWidget = ({ onClose }: { onClose: () => void }) => {
     setLoading(true);
 
     try {
-      const res = await fetch('http://localhost:5003/api/v1/llama/query', {
+      const res = await fetch('https://api.docalert.in/api/v1/llama/query', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: userMsg }),
