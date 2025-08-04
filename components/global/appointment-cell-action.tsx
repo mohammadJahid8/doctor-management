@@ -12,6 +12,24 @@ import "jspdf-autotable";
 export const AppointmentCellAction: React.FC<any> = ({ data }) => {
   const { setAppointmentRefetch, appointmentRefetch } = useAppContext();
 
+  //   const handleMarkComplete = async () => {
+  //   try {
+  //     const response = await api.patch(`/appointment/complete/${data._id}`);
+  //     if (response.status === 200) {
+  //       toast.success("Appointment marked as complete", {
+  //         position: "top-center",
+  //       });
+  //       setAppointmentRefetch(!appointmentRefetch);
+  //     }
+  //   } catch (err: any) {
+  //     toast.error(
+  //       err?.response?.data?.error || "Failed to complete appointment",
+  //       { position: "top-center" }
+  //     );
+  //     console.error(err);
+  //   }
+  // };
+
   
   const handleDelete = async (id: any) => {
     try {
