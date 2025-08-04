@@ -3,7 +3,6 @@ import './globals.css';
 import { Poppins } from 'next/font/google';
 import Provider from '@/lib/provider';
 import { Toaster } from 'sonner';
-import Whatsapp from '@/components/global/whatsapp';
 import ChatWidget from '@/components/global/ChatWidget';
 
 const poppins = Poppins({
@@ -33,6 +32,20 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang='en' suppressHydrationWarning>
+      <head>
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-GZE5GWD4FW" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-GZE5GWD4FW');
+            `,
+          }}
+        />
+      </head>
       <body className={`${poppins.className}`}>
         <Provider>
           {children} <Toaster />
