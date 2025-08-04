@@ -12,18 +12,33 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Use Pre-installed Node.js
-        run: |
-          node --version  # Logs the default version (for debugging)
-          npm --version
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Build Next.js
+      - name: Build Next.js app
         run: npm run build
 
-      - name: Deploy to EC2
+      - name: Zip build artifacts
+        run: |
+          mkdir deploy
+          cp -r .next public package.json next.config.js deploy/
+          cd deploy && zip -r frontend.zip .
+
+      - name: Copy build to EC2
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "deploy/frontend.zip"
+          target: "~/frontend"
+
+      - name: SSH and deploy
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.EC2_HOST }}
@@ -31,8 +46,8 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd ~/frontend
-            git pull origin main
-            rm -rf .next
-            npm install --production
-            npm run build
-            pm2 restart frontend
+            rm -rf .next public package.json next.config.js
+            unzip -o deploy/frontend.zip -d ./
+            rm deploy/frontend.zip
+            npm install --omit=dev
+            pm2 restart frontend || pm2 start npm --name frontend -- start
