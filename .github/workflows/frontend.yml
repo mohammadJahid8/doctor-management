@@ -26,7 +26,7 @@ jobs:
       - name: Zip build artifacts
         run: |
           mkdir deploy
-          cp -r .next public package.json next.config.js deploy/
+          cp -r .next public package.json next.config.mjs deploy/
           cd deploy && zip -r frontend.zip .
 
       - name: Copy build to EC2
