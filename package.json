@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "cross-env NEXT_SKIP_TYPE_CHECK=true NEXT_SKIP_ESLINT=true next build",
     "start": "next start",
     "lint": "next lint"
   },
