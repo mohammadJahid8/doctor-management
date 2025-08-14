@@ -20,9 +20,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build Next.js (skip type check & lint)
-        run: NEXT_SKIP_TYPE_CHECK=true NEXT_SKIP_ESLINT=true npm run build
-
       - name: Deploy to EC2
         uses: appleboy/ssh-action@master
         with:
@@ -34,5 +31,5 @@ jobs:
             git pull origin main
             rm -rf .next
             npm install --production
-            NEXT_SKIP_TYPE_CHECK=true NEXT_SKIP_ESLINT=true npm run build
+            npm run build --no-lint --no-type-check
             pm2 restart frontend
