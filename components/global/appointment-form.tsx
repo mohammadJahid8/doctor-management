@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import PhoneInput from "react-phone-input-2";
 
 import {
   Form,
@@ -65,14 +64,7 @@ export default function AppointmentForm({ onSubmit, loading, data }: any) {
             <FormItem>
               <FormLabel>Phone number</FormLabel>
               <FormControl>
-                <PhoneInput
-                  country="in"                // Always India
-                  onlyCountries={["in"]}      // Limit to India only
-                  value={field.value}
-                  onChange={(phone) => field.onChange(phone)}
-                  inputClass="w-full h-10"
-                  disabled={loading}
-                />
+                <Input disabled={loading} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>

@@ -37,12 +37,9 @@ const PhoneInput: React.ForwardRefExoticComponent<PhoneInputProps> =
       const [country, setCountry] = useState("US");
 
       React.useEffect(() => {
-        async function fetchCountry() {
-          const data = await getCountry();
-          setCountry(data);
-        }
-        fetchCountry();
+        setCountry("IN"); // Always India
       }, []);
+
       return (
         <RPNInput.default
           ref={ref}
