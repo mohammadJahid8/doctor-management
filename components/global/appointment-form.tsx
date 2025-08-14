@@ -66,7 +66,8 @@ export default function AppointmentForm({ onSubmit, loading, data }: any) {
               <FormLabel>Phone number</FormLabel>
               <FormControl>
                 <PhoneInput
-                  country={"in"} // India as default
+                  country="in"                // Always India
+                  onlyCountries={["in"]}      // Limit to India only
                   value={field.value}
                   onChange={(phone) => field.onChange(phone)}
                   inputClass="w-full h-10"
