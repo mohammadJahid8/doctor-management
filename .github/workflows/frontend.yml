@@ -33,3 +33,4 @@ jobs:
             npm install --production
             npm run build --no-lint --no-type-check
             pm2 restart frontend
+          timeout: 60m
