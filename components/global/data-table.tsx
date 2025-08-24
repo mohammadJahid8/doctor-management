@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useState, useMemo } from "react";
+import { useState, useMemo } from 'react';
 
 import {
   type ColumnDef,
@@ -8,7 +8,7 @@ import {
   getCoreRowModel,
   getFilteredRowModel,
   useReactTable,
-} from "@tanstack/react-table";
+} from '@tanstack/react-table';
 
 import {
   Table,
@@ -17,10 +17,10 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
-import { Input } from "../ui/input";
-import { ScrollArea, ScrollBar } from "../ui/scroll-area";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+} from '@/components/ui/table';
+import { Input } from '../ui/input';
+import { ScrollArea, ScrollBar } from '../ui/scroll-area';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -38,28 +38,28 @@ export function DataTable<TData, TValue>({
   isDoctor = false, // Default to false
 }: DataTableProps<TData, TValue>) {
   const [subscriptionFilter, setSubscriptionFilter] = useState<
-    "all" | "subscribed" | "unsubscribed"
-  >("all");
+    'all' | 'subscribed' | 'unsubscribed'
+  >('all');
 
   // Filter data based on subscription status
+  console.log({ data });
   const filteredData = useMemo(() => {
-  if (subscriptionFilter === "all") return data;
+    if (subscriptionFilter === 'all') return data;
 
-  return data.filter((item: any) => {
-    const status = item?.subscription?.status;
+    return data.filter((item: any) => {
+      const status = item?.referral?.isValid;
 
-    if (subscriptionFilter === "subscribed") {
-      return status === "Active";
-    }
+      if (subscriptionFilter === 'subscribed') {
+        return status;
+      }
 
-    if (subscriptionFilter === "unsubscribed") {
-      return status === "Not Subscribed" || !status;
-    }
+      if (subscriptionFilter === 'unsubscribed') {
+        return !status;
+      }
 
-    return true;
-  });
-}, [data, subscriptionFilter]);
-
+      return true;
+    });
+  }, [data, subscriptionFilter]);
 
   const table = useReactTable({
     data: filteredData,
@@ -69,39 +69,39 @@ export function DataTable<TData, TValue>({
   });
 
   return (
-    <div className="space-y-4">
-      <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+    <div className='space-y-4'>
+      <div className='flex flex-col gap-4 md:flex-row md:items-center md:justify-between'>
         <Input
           placeholder={`Search ${viewSearchKey}...`}
-          value={(table.getColumn(searchKey)?.getFilterValue() as string) ?? ""}
+          value={(table.getColumn(searchKey)?.getFilterValue() as string) ?? ''}
           onChange={(event) =>
             table.getColumn(searchKey)?.setFilterValue(event.target.value)
           }
-          className="w-full md:max-w-sm"
+          className='w-full md:max-w-sm'
         />
 
         {isDoctor && (
           <Tabs
-            defaultValue="all"
+            defaultValue='all'
             value={subscriptionFilter}
             onValueChange={(value) =>
               setSubscriptionFilter(
-                value as "all" | "subscribed" | "unsubscribed"
+                value as 'all' | 'subscribed' | 'unsubscribed'
               )
             }
-            className="w-full md:w-auto"
+            className='w-full md:w-auto'
           >
-            <TabsList className="grid w-full grid-cols-3">
-              <TabsTrigger value="all">All</TabsTrigger>
-              <TabsTrigger value="subscribed">Subscribed</TabsTrigger>
-              <TabsTrigger value="unsubscribed">Unsubscribed</TabsTrigger>
+            <TabsList className='grid w-full grid-cols-3'>
+              <TabsTrigger value='all'>All</TabsTrigger>
+              <TabsTrigger value='subscribed'>Subscribed</TabsTrigger>
+              <TabsTrigger value='unsubscribed'>Unsubscribed</TabsTrigger>
             </TabsList>
           </Tabs>
         )}
       </div>
 
-      <ScrollArea className="h-[calc(80vh-220px)] rounded-md border md:h-[calc(80dvh-200px)]">
-        <Table className="relative">
+      <ScrollArea className='h-[calc(80vh-220px)] rounded-md border md:h-[calc(80dvh-200px)]'>
+        <Table className='relative'>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
@@ -125,7 +125,7 @@ export function DataTable<TData, TValue>({
               table.getRowModel().rows.map((row) => (
                 <TableRow
                   key={row.id}
-                  data-state={row.getIsSelected() && "selected"}
+                  data-state={row.getIsSelected() && 'selected'}
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>
@@ -141,7 +141,7 @@ export function DataTable<TData, TValue>({
               <TableRow>
                 <TableCell
                   colSpan={columns.length}
-                  className="h-24 text-center"
+                  className='h-24 text-center'
                 >
                   No results.
                 </TableCell>
@@ -149,7 +149,7 @@ export function DataTable<TData, TValue>({
             )}
           </TableBody>
         </Table>
-        <ScrollBar orientation="horizontal" />
+        <ScrollBar orientation='horizontal' />
       </ScrollArea>
     </div>
   );

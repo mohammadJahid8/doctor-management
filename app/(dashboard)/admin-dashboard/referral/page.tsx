@@ -1,17 +1,17 @@
 'use client';
 
-import { Appointments } from '@/components/global/appointments';
 import PageContainer from '@/components/global/page-container';
+import { Referral } from '@/components/global/referral';
 import React from 'react';
 
-const AdminAppointments = () => {
+const GenerateReffaralCode = () => {
   return (
     <PageContainer>
       <div className='space-y-2'>
-        <Appointments />
+        <Referral />
       </div>
     </PageContainer>
   );
 };
 
-export default AdminAppointments;
+export default GenerateReffaralCode;

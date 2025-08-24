@@ -1,136 +1,359 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Advertisement } from "@/components/global/advertisement";
-import SectionTitle from "@/components/global/sec-title";
-import Title from "@/components/global/title";
-import { Suspense } from "react";
+import { Advertisement } from '@/components/global/advertisement';
+import SectionTitle from '@/components/global/sec-title';
+import Title from '@/components/global/title';
+import { Suspense } from 'react';
 
 const AboutPage = () => {
   return (
-    <div id="faqs" className="px-4 xl:px-0 py-[60px] md:py-[120px]">
-      <div className="max-w-[1200px] mx-auto">
-        <div className="flex flex-col gap-2 justify-center items-center pb-12">
-          <SectionTitle title="About us" />
-          <Title
-            title="Welcome to DOCalert"
-            className="text-[32px] lg:text-[46px] leading-[1.3em]"
-          />
-          <div className="flex flex-col gap-4 text-muted-foreground text-[17px]">
-            <p>
-              Welcome to <strong>DOCalert</strong>, India’s trusted patient
-              management and growth platform for doctors, clinics, and
-              hospitals.
+    <div
+      id='faqs'
+      className='px-4 sm:px-6 xl:px-0 py-[60px] sm:py-[80px] md:py-[100px]'
+    >
+      <div className='max-w-[1200px] mx-auto'>
+        <div className='flex flex-col gap-6 sm:gap-8 justify-center items-center pb-12 sm:pb-16'>
+          <div className='text-center space-y-3 sm:space-y-4'>
+            <SectionTitle title='About Us' />
+            <Title
+              title='Welcome to DOCalert'
+              className='text-[28px] sm:text-[36px] lg:text-[52px] leading-[1.2em] font-bold'
+            />
+            <p className='text-lg sm:text-xl text-muted-foreground max-w-[800px] mx-auto leading-relaxed px-4 sm:px-0'>
+              India's most trusted patient management and growth platform for
+              healthcare professionals
             </p>
+          </div>
 
-            <p>
-              At DOCalert, our mission is simple — to help healthcare
-              professionals grow their practice, improve patient satisfaction,
-              and make clinic management easy for everyone.
-            </p>
-
-            <p>
-              We provide a user-friendly system designed so that even
-              individuals with minimal education or technical skills can operate
-              it effortlessly. Whether you run a large hospital or a small
-              clinic, DOCalert is built to support your growth.
-            </p>
-
-            <div className="flex flex-col gap-2">
-              <strong>Our Key Features:</strong>
-
-              <p>
-                ✔️ <strong>Patient Records Made Easy:</strong> Quickly record
-                essential patient details like name, phone number, and next
-                appointment.
+          <div className='w-full space-y-8 sm:space-y-12'>
+            <div className='prose prose-base sm:prose-lg max-w-none'>
+              <p className='text-base sm:text-lg leading-relaxed text-foreground'>
+                At DOCalert, our mission is to empower healthcare professionals
+                by streamlining practice management, enhancing patient
+                satisfaction, and driving sustainable clinic growth through
+                innovative technology solutions.
               </p>
 
-              <p>
-                ✔️ <strong>Instant OPD Slips:</strong> Generate OPD slips
-                instantly for a smooth and organized check-in process.
-              </p>
-
-              <p>
-                ✔️ <strong>WhatsApp Review System:</strong> Automatically send
-                review links to patients via WhatsApp after each consultation.
-              </p>
-
-              <p>
-                ✔️ <strong>Executive Call Support:</strong> Our team reminds
-                patients of their appointments a day in advance via phone calls.
-              </p>
-
-              <p>
-                ✔️ <strong>Growth Analysis & Doctor Feedback:</strong> Our expert
-                team analyzes your practice growth and informs you of any issues
-                to ensure continuous improvement.
-              </p>
-
-              <p>
-                ✔️ <strong>Recognition for Excellence:</strong> Doctors who
-                receive all positive feedback are rewarded with special gifts or
-                medals.
-              </p>
-
-              <p>
-                ✔️ <strong>Billing with or without GST:</strong> Generate bills
-                easily with support for both GST and non-GST billing options.
-              </p>
-
-              <p>
-                ✔️ <strong>Google Reviews for More Patients:</strong> We
-                encourage happy patients to leave positive Google reviews,
-                helping doctors increase their online presence and attract more
-                patients through word-of-mouth referrals.
+              <p className='text-base sm:text-lg leading-relaxed text-foreground'>
+                We understand that your time is invaluable. Every moment spent
+                on administrative tasks is time taken away from patient care.
+                DOCalert is designed as a comprehensive clinic management
+                platform that automates workflows and optimizes operations for
+                medical professionals.
               </p>
             </div>
 
-            <div className="flex flex-col gap-2 pt-4">
-              <strong>Simple, Accessible, Powerful:</strong>
-              <p>
-                DOCalert is designed to be so simple that even a 10th-pass
-                student or someone with minimal technical knowledge can use it
-                effectively.
-              </p>
+            <div className='grid gap-8 sm:gap-12'>
+              <section className='bg-gradient-to-br from-red-50 to-red-100/50 dark:from-red-950/20 dark:to-red-900/10 p-4 sm:p-6 lg:p-8 rounded-xl border border-red-200/50 dark:border-red-800/30'>
+                <h2 className='text-xl sm:text-2xl font-bold text-foreground mb-4 sm:mb-6'>
+                  Common Healthcare Management Challenges
+                </h2>
+                <div className='grid gap-3 sm:gap-4'>
+                  <div className='flex items-start gap-4'>
+                    <div className='w-2 h-2 bg-red-500 rounded-full mt-3 flex-shrink-0'></div>
+                    <p className='text-base sm:text-lg'>
+                      Patient records scattered across multiple systems and
+                      paper registers
+                    </p>
+                  </div>
+                  <div className='flex items-start gap-4'>
+                    <div className='w-2 h-2 bg-red-500 rounded-full mt-3 flex-shrink-0'></div>
+                    <p className='text-base sm:text-lg'>
+                      Excessive administrative workload reducing consultation
+                      time
+                    </p>
+                  </div>
+                  <div className='flex items-start gap-4'>
+                    <div className='w-2 h-2 bg-red-500 rounded-full mt-3 flex-shrink-0'></div>
+                    <p className='text-base sm:text-lg'>
+                      High appointment no-show rates and poor patient retention
+                    </p>
+                  </div>
+                  <div className='flex items-start gap-4'>
+                    <div className='w-2 h-2 bg-red-500 rounded-full mt-3 flex-shrink-0'></div>
+                    <p className='text-base sm:text-lg'>
+                      Limited online visibility affecting patient acquisition
+                    </p>
+                  </div>
+                  <div className='flex items-start gap-4'>
+                    <div className='w-2 h-2 bg-red-500 rounded-full mt-3 flex-shrink-0'></div>
+                    <p className='text-base sm:text-lg'>
+                      Ineffective follow-up systems hindering practice growth
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+              <section className='bg-gradient-to-br from-blue-50 to-blue-100/50 dark:from-blue-950/20 dark:to-blue-900/10 p-4 sm:p-6 lg:p-8 rounded-xl border border-blue-200/50 dark:border-blue-800/30'>
+                <h2 className='text-xl sm:text-2xl font-bold text-foreground mb-3 sm:mb-4'>
+                  Our Comprehensive Solution
+                </h2>
+                <p className='text-base sm:text-lg mb-4 sm:mb-6 text-muted-foreground'>
+                  DOCalert provides an integrated ecosystem of tools designed to
+                  transform your practice management:
+                </p>
+                <div className='grid gap-4'>
+                  <div className='flex items-start gap-4'>
+                    <div className='w-2 h-2 bg-blue-500 rounded-full mt-3 flex-shrink-0'></div>
+                    <div>
+                      <h3 className='font-semibold text-base sm:text-lg'>
+                        Smart Patient Records
+                      </h3>
+                      <p className='text-sm sm:text-base text-muted-foreground'>
+                        Instant data entry, complete medical history, and secure
+                        cloud storage
+                      </p>
+                    </div>
+                  </div>
+                  <div className='flex items-start gap-4'>
+                    <div className='w-2 h-2 bg-blue-500 rounded-full mt-3 flex-shrink-0'></div>
+                    <div>
+                      <h3 className='font-semibold text-base sm:text-lg'>
+                        Professional Documentation
+                      </h3>
+                      <p className='text-sm sm:text-base text-muted-foreground'>
+                        One-click OPD slip generation with branded, error-free
+                        formatting
+                      </p>
+                    </div>
+                  </div>
+                  <div className='flex items-start gap-4'>
+                    <div className='w-2 h-2 bg-blue-500 rounded-full mt-3 flex-shrink-0'></div>
+                    <div>
+                      <h3 className='font-semibold text-base sm:text-lg'>
+                        Review Management System
+                      </h3>
+                      <p className='text-sm sm:text-base text-muted-foreground'>
+                        Automated Google review acquisition to enhance online
+                        reputation
+                      </p>
+                    </div>
+                  </div>
+                  <div className='flex items-start gap-4'>
+                    <div className='w-2 h-2 bg-blue-500 rounded-full mt-3 flex-shrink-0'></div>
+                    <div>
+                      <h3 className='font-semibold text-base sm:text-lg'>
+                        Intelligent Appointment System
+                      </h3>
+                      <p className='text-sm sm:text-base text-muted-foreground'>
+                        WhatsApp reminders and executive follow-ups to reduce
+                        no-shows
+                      </p>
+                    </div>
+                  </div>
+                  <div className='flex items-start gap-4'>
+                    <div className='w-2 h-2 bg-blue-500 rounded-full mt-3 flex-shrink-0'></div>
+                    <div>
+                      <h3 className='font-semibold text-base sm:text-lg'>
+                        Analytics & Insights
+                      </h3>
+                      <p className='text-sm sm:text-base text-muted-foreground'>
+                        Patient retention analysis and data-driven growth
+                        recommendations
+                      </p>
+                    </div>
+                  </div>
+                  <div className='flex items-start gap-4'>
+                    <div className='w-2 h-2 bg-blue-500 rounded-full mt-3 flex-shrink-0'></div>
+                    <div>
+                      <h3 className='font-semibold text-base sm:text-lg'>
+                        Recognition Program
+                      </h3>
+                      <p className='text-sm sm:text-base text-muted-foreground'>
+                        Professional certifications and awards to build patient
+                        trust
+                      </p>
+                    </div>
+                  </div>
+                  <div className='flex items-start gap-4'>
+                    <div className='w-2 h-2 bg-blue-500 rounded-full mt-3 flex-shrink-0'></div>
+                    <div>
+                      <h3 className='font-semibold text-base sm:text-lg'>
+                        Advanced Billing
+                      </h3>
+                      <p className='text-sm sm:text-base text-muted-foreground'>
+                        GST-compliant invoicing with automated accounting
+                        integration
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section className='bg-gradient-to-br from-green-50 to-green-100/50 dark:from-green-950/20 dark:to-green-900/10 p-4 sm:p-6 lg:p-8 rounded-xl border border-green-200/50 dark:border-green-800/30'>
+                <h2 className='text-xl sm:text-2xl font-bold text-foreground mb-4 sm:mb-6'>
+                  Expected Growth Outcomes
+                </h2>
+                <div className='grid gap-3 sm:gap-4'>
+                  <div className='flex items-start gap-4'>
+                    <div className='w-2 h-2 bg-green-500 rounded-full mt-3 flex-shrink-0'></div>
+                    <p className='text-base sm:text-lg'>
+                      Significant increase in patient trust and retention within
+                      months
+                    </p>
+                  </div>
+                  <div className='flex items-start gap-4'>
+                    <div className='w-2 h-2 bg-green-500 rounded-full mt-3 flex-shrink-0'></div>
+                    <p className='text-base sm:text-lg'>
+                      Establishment as the preferred healthcare provider in your
+                      locality
+                    </p>
+                  </div>
+                  <div className='flex items-start gap-4'>
+                    <div className='w-2 h-2 bg-green-500 rounded-full mt-3 flex-shrink-0'></div>
+                    <p className='text-base sm:text-lg'>
+                      Sustained practice growth through systematic patient
+                      engagement
+                    </p>
+                  </div>
+                </div>
+                <p className='mt-4 sm:mt-6 text-base sm:text-lg text-muted-foreground'>
+                  Our dedicated analytics and support teams provide continuous
+                  guidance to ensure your practice achieves consistent,
+                  measurable growth.
+                </p>
+              </section>
+
+              <section className='bg-gradient-to-br from-purple-50 to-purple-100/50 dark:from-purple-950/20 dark:to-purple-900/10 p-4 sm:p-6 lg:p-8 rounded-xl border border-purple-200/50 dark:border-purple-800/30'>
+                <h2 className='text-xl sm:text-2xl font-bold text-foreground mb-4 sm:mb-6'>
+                  Flexible Pricing Plans
+                </h2>
+                <div className='grid gap-4 sm:gap-6 lg:grid-cols-3'>
+                  <div className='bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-lg border'>
+                    <h3 className='text-lg sm:text-xl font-semibold mb-2'>
+                      Lifetime License
+                    </h3>
+                    <p className='text-2xl sm:text-3xl font-bold text-purple-600 mb-2'>
+                      ₹25,000
+                    </p>
+                    <p className='text-sm text-muted-foreground mb-4'>
+                      One-time setup fee
+                    </p>
+                    <p className='text-sm'>
+                      Complete system access with full customization and
+                      lifetime updates
+                    </p>
+                  </div>
+                  <div className='bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-lg border'>
+                    <h3 className='text-lg sm:text-xl font-semibold mb-2'>
+                      Premium Plan
+                    </h3>
+                    <p className='text-2xl sm:text-3xl font-bold text-purple-600 mb-2'>
+                      ₹5,000
+                    </p>
+                    <p className='text-sm text-muted-foreground mb-4'>
+                      Per month
+                    </p>
+                    <p className='text-sm'>
+                      All core features excluding advanced analytics and
+                      recognition programs
+                    </p>
+                  </div>
+                  <div className='bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-lg border'>
+                    <h3 className='text-lg sm:text-xl font-semibold mb-2'>
+                      Premium Plus
+                    </h3>
+                    <p className='text-2xl sm:text-3xl font-bold text-purple-600 mb-2'>
+                      ₹10,000
+                    </p>
+                    <p className='text-sm text-muted-foreground mb-4'>
+                      Per month
+                    </p>
+                    <p className='text-sm'>
+                      Complete feature access with multi-doctor login
+                      capabilities
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+              <section className='bg-gradient-to-br from-orange-50 to-orange-100/50 dark:from-orange-950/20 dark:to-orange-900/10 p-4 sm:p-6 lg:p-8 rounded-xl border border-orange-200/50 dark:border-orange-800/30'>
+                <h2 className='text-xl sm:text-2xl font-bold text-foreground mb-3 sm:mb-4'>
+                  The Cost of Delayed Implementation
+                </h2>
+                <p className='text-base sm:text-lg mb-4 sm:mb-6 text-muted-foreground'>
+                  Every day without DOCalert represents:
+                </p>
+                <div className='grid gap-3 sm:gap-4 mb-4 sm:mb-6'>
+                  <div className='flex items-start gap-4'>
+                    <div className='w-2 h-2 bg-orange-500 rounded-full mt-3 flex-shrink-0'></div>
+                    <p className='text-base sm:text-lg'>
+                      Lost patients due to poor retention systems
+                    </p>
+                  </div>
+                  <div className='flex items-start gap-4'>
+                    <div className='w-2 h-2 bg-orange-500 rounded-full mt-3 flex-shrink-0'></div>
+                    <p className='text-base sm:text-lg'>
+                      Missed opportunities from online patient searches
+                    </p>
+                  </div>
+                  <div className='flex items-start gap-4'>
+                    <div className='w-2 h-2 bg-orange-500 rounded-full mt-3 flex-shrink-0'></div>
+                    <p className='text-base sm:text-lg'>
+                      Productivity loss due to manual administrative processes
+                    </p>
+                  </div>
+                </div>
+                <div className='bg-orange-100 dark:bg-orange-900/20 p-4 rounded-lg'>
+                  <p className='text-base sm:text-lg font-medium text-center'>
+                    Transform your clinic from merely operational to
+                    exceptionally successful with DOCalert.
+                  </p>
+                </div>
+              </section>
+
+              <section className='bg-gradient-to-br from-gray-50 to-gray-100/50 dark:from-gray-900 dark:to-gray-800/50 p-4 sm:p-6 lg:p-8 rounded-xl border'>
+                <h2 className='text-xl sm:text-2xl font-bold text-foreground mb-4 sm:mb-6 text-center'>
+                  Contact Information
+                </h2>
+                <div className='grid sm:grid-cols-2 gap-4 sm:gap-6 max-w-[600px] mx-auto'>
+                  <div className='text-center'>
+                    <h3 className='font-semibold text-base sm:text-lg mb-2'>
+                      Phone Support
+                    </h3>
+                    <a
+                      href='tel:+918790986015'
+                      className='text-xl sm:text-2xl font-bold text-blue-600 hover:text-blue-700 transition-colors block'
+                    >
+                      +91 87909 86015
+                    </a>
+                  </div>
+                  <div className='text-center'>
+                    <h3 className='font-semibold text-base sm:text-lg mb-2'>
+                      Email Support
+                    </h3>
+                    <a
+                      href='mailto:docalerthelp@gmail.com'
+                      className='text-base sm:text-lg text-blue-600 hover:text-blue-700 transition-colors break-words'
+                    >
+                      docalerthelp@gmail.com
+                    </a>
+                  </div>
+                </div>
+                <div className='mt-6 sm:mt-8 text-center'>
+                  <p className='text-lg sm:text-xl font-medium text-muted-foreground italic'>
+                    DOCalert — Elevating healthcare practices through
+                    intelligent technology
+                  </p>
+                </div>
+              </section>
             </div>
 
-            <div className="flex flex-col gap-2 pt-4">
-              <strong>We offer two plans:</strong>
-              <p>
-                <strong>Free Plan:</strong> Includes patient record management,
-                OPD slip generation, and billing.
-              </p>
-              <p>
-                <strong>Paid Subscription:</strong> Unlocks full features
-                including call support, growth analysis, review collection,
-                patient reminders, and more.
-              </p>
-            </div>
-
-            <div className="flex flex-col gap-2 pt-4">
-              <strong>Why It Works:</strong>
-              <p>
-                According to our expert research, word of mouth remains a
-                powerful tool in healthcare growth. By reminding patients of
-                their appointments and engaging them with feedback systems,
-                patients remember the doctor's name and recommend them to
-                others, boosting practice growth naturally.
-              </p>
-            </div>
-
-            <div className="flex flex-col gap-2 pt-4">
-              <strong>Join Us:</strong>
-              <p>
-                Join over <strong>6,700+</strong> doctors and clinics across
-                India who trust DOCalert to simplify clinic management and
-                increase patient growth.
+            <div className='prose prose-base sm:prose-lg max-w-none'>
+              <p className='text-base sm:text-lg leading-relaxed text-foreground'>
+                Our platform is engineered for accessibility, ensuring that
+                healthcare professionals with varying levels of technical
+                expertise can operate the system efficiently. Whether you manage
+                a large hospital network or operate an independent clinic,
+                DOCalert scales to support your specific requirements.
               </p>
             </div>
           </div>
         </div>
 
         <Suspense
-          fallback={<div className="h-[250px] animate-pulse bg-muted"></div>}
+          fallback={<div className='h-[250px] animate-pulse bg-muted'></div>}
         >
-          <Advertisement position="before-footer" />
+          <Advertisement position='before-footer' />
         </Suspense>
       </div>
     </div>

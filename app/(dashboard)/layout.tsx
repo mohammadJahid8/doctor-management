@@ -28,8 +28,9 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
     return redirect('/doctors-dashboard');
   }
 
-  if (user?.role === 'doctor' && user?.subscription?.planId === undefined) {
-    return redirect('/packages');
+  if (user?.role === 'doctor' && !user?.referral?.isValid) {
+    console.log({ user });
+    return redirect('/activate-referral');
   }
 
   return (

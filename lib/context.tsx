@@ -1,13 +1,13 @@
 /* eslint-disable react/prop-types */
 
-import api from "@/utils/axiosInstance";
+import api from '@/utils/axiosInstance';
 import {
   createContext,
   useCallback,
   useContext,
   useEffect,
   useState,
-} from "react";
+} from 'react';
 
 export const UserContext = createContext<any>({});
 
@@ -27,7 +27,7 @@ const ContextProvider = ({ children }: any) => {
   const [reviewsRefetch, setReviewsRefetch] = useState(false);
   const [advertisementsRefetch, setAdvertisementsRefetch] = useState(false);
   const [advertisements, setAdvertisements] = useState([]);
-
+  const [referrals, setReferrals] = useState([]);
   const [users, setUsers] = useState([]);
   const [appointments, setAppointments] = useState([]);
   const [billings, setBillings] = useState([]);
@@ -37,8 +37,9 @@ const ContextProvider = ({ children }: any) => {
   const [doctors, setDoctors] = useState([]);
   const [openReview, setOpenReview] = useState(false);
   const [openAdvertisement, setOpenAdvertisement] = useState(false);
+  const [openReferral, setOpenReferral] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
-
+  const [referralsRefetch, setReferralsRefetch] = useState(false);
   const toggle = useCallback(() => {
     setIsMinimized((prevState) => !prevState);
   }, []);
@@ -56,17 +57,11 @@ const ContextProvider = ({ children }: any) => {
     }
   }, [user?.role, usersRefetch]);
 
+  // Appointments are now fetched directly in the AppointmentsDataTable component
+  // This maintains the refetch functionality for other components that might need it
   useEffect(() => {
-    try {
-      const getAllAppointments = async () => {
-        const response = await api.get(`/appointment`);
-
-        setAppointments(response?.data?.data);
-      };
-      getAllAppointments();
-    } catch (error) {
-      console.log(error);
-    }
+    // This effect is kept for backward compatibility but appointments are now fetched in the component
+    // The appointmentRefetch state is still used to trigger refetches when needed
   }, [appointmentRefetch]);
 
   useEffect(() => {
@@ -126,6 +121,19 @@ const ContextProvider = ({ children }: any) => {
   }, [advertisementsRefetch]);
 
   useEffect(() => {
+    try {
+      const getAllReferrals = async () => {
+        const response = await api.get(`/referral`);
+
+        setReferrals(response?.data?.data);
+      };
+      getAllReferrals();
+    } catch (error) {
+      console.log(error);
+    }
+  }, [referralsRefetch]);
+
+  useEffect(() => {
     const getProfile = async () => {
       setIsLoading(true);
 
@@ -137,8 +145,8 @@ const ContextProvider = ({ children }: any) => {
       } catch (error: any) {
         console.log(error);
         setIsLoading(false);
-        if (error.response.data.message === "Invalid Token!") {
-          localStorage.removeItem("dmToken");
+        if (error.response.data.message === 'Invalid Token!') {
+          localStorage.removeItem('dmToken');
         }
       }
     };
@@ -147,7 +155,7 @@ const ContextProvider = ({ children }: any) => {
   }, [userRefetch]);
 
   const logout = () => {
-    window.localStorage.removeItem("dmToken");
+    window.localStorage.removeItem('dmToken');
     setUser({});
   };
 
@@ -189,6 +197,12 @@ const ContextProvider = ({ children }: any) => {
     setAdvertisements,
     advertisementsRefetch,
     setAdvertisementsRefetch,
+    openReferral,
+    setOpenReferral,
+    referrals,
+    setReferrals,
+    referralsRefetch,
+    setReferralsRefetch,
   };
 
   return (
