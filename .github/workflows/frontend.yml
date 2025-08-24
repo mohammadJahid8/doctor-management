@@ -30,7 +30,7 @@ jobs:
             cd ~/frontend
             git pull origin main
             rm -rf .next
-            npm install --production
+            npm install --omit=dev
             npm run build --no-lint --no-type-check
             pm2 restart frontend || pm2 start npm --name "frontend" -- run start
           timeout: 60m
