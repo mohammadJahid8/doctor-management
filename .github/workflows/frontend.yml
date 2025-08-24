@@ -32,5 +32,5 @@ jobs:
             rm -rf .next
             npm install --production
             npm run build --no-lint --no-type-check
-            pm2 restart frontend
+            pm2 restart frontend || pm2 start npm --name "frontend" -- run start
           timeout: 60m
