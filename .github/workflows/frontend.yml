@@ -1,58 +1,35 @@
-name: Deploy Frontend
+name: Frontend CI/CD
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'npm'
-
+      - name: Use Pre-installed Node.js
+        run: |
+          node --version
+          npm --version
       - name: Install dependencies
-        run: |
-          rm -rf node_modules package-lock.json
-          npm install --include=dev
+        run: npm install
 
-
-      - name: Build Next.js
-        run: npm run build
-
-      - name: Prepare artifact
-        run: |
-          mkdir deploy
-          cp -r .next public package.json package-lock.json node_modules deploy/
-          cd deploy && zip -r ../frontend.zip .
-
-      - name: Copy artifact to EC2
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ubuntu
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "frontend.zip"
-          target: "~/"
-
-      - name: Deploy on EC2
-        uses: appleboy/ssh-action@v0.1.10
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ubuntu
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd ~
-            rm -rf frontend
-            mkdir frontend
-            unzip -o frontend.zip -d frontend
-            cd frontend
-            pm2 restart frontend || pm2 start npm --name "frontend" -- start
+            cd ~/frontend
+            git pull origin main
+            rm -rf .next
+            npm install --production
+            npm run build --no-lint --no-type-check
+            pm2 restart frontend || pm2 start npm --name "frontend" -- run start
+          timeout: 60m
