@@ -16,8 +16,9 @@ jobs:
         run: |
           node --version
           npm --version
+
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Deploy to EC2
         uses: appleboy/ssh-action@master
@@ -25,15 +26,11 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ubuntu
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: '.next,public,package.json,package-lock.json'
-          target: '~/frontend/'
-
-      - name: Restart app on EC2
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ubuntu
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd ~/frontend
-            pm2 restart frontend
+            git pull origin main
+            rm -rf .next
+            npm install --production
+            npm run build --no-lint --no-type-check
+            pm2 restart frontend || pm2 start npm --name "frontend" -- run start
+          timeout: 60m
