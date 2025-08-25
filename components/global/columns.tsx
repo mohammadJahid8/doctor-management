@@ -271,6 +271,10 @@ export const getReferralColumns = (): ColumnDef<any>[] => {
       header: 'EMAIL',
     },
     {
+      accessorKey: 'price',
+      header: 'PRICE',
+    },
+    {
       accessorKey: 'isUsed',
       header: 'USED',
       cell: ({ row }) => {

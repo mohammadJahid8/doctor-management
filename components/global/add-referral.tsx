@@ -38,6 +38,7 @@ export function AddReferralModal() {
       doctorName: inputs.doctorName || '',
       email: inputs.email || '',
       validUntil: inputs.validUntil || '',
+      price: inputs.price || '',
     };
 
     try {
@@ -92,6 +93,19 @@ export function AddReferralModal() {
               type='email'
               className=''
               onChange={(e) => setInputs({ ...inputs, email: e.target.value })}
+              required
+              disabled={loading}
+            />
+          </div>
+          <div className='flex flex-col justify-start items-start gap-2'>
+            <Label htmlFor='price' className=''>
+              Price
+            </Label>
+            <Input
+              id='price'
+              type='number'
+              className=''
+              onChange={(e) => setInputs({ ...inputs, price: e.target.value })}
               required
               disabled={loading}
             />
